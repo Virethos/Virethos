@@ -108,11 +108,11 @@ function closeAllSidebars() {
 ========================= */
 
 function goHome() {
-  window.location.href = "Virethos.html";
+  window.location.href = "index.html";
 }
 
 function goProducts() {
-  window.location.href = "Virethos.html?page=products";
+  window.location.href = "index.html?page=products";
 }
 
 /* =========================
