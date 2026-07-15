@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virethos</title>
+  <link rel="stylesheet" href="Virethos.css">
+</head>
+
+<body>
+
+<header>
+  <button class="menu" onclick="toggleMenu()" aria-label="Ouvrir le menu">☰</button>
+
+  <h1 class="logo" onclick="goHome()">Virethos</h1>
+
+  <button class="cart" onclick="toggleCart()" aria-label="Ouvrir le panier">🛒</button>
+</header>
+
+<!-- Sidebar Menu -->
+<aside id="sidebarMenu" class="sidebar left">
+  <button class="close" onclick="toggleMenu()" aria-label="Fermer le menu">✕</button>
+
+  <h2>Menu</h2>
+
+  <div onclick="showPage('home')">Accueil</div>
+  <div onclick="showPage('products')">Produits</div>
+</aside>
+
+<!-- Sidebar Panier -->
+<aside id="sidebarCart" class="sidebar right">
+  <button class="close" onclick="toggleCart()" aria-label="Fermer le panier">✕</button>
+
+  <h2>Panier</h2>
+
+  <div id="cartItems" class="cart-items"></div>
+
+  <div class="cart-footer">
+    <h3>Total : <span id="cartTotal">0 DH</span></h3>
+
+    <button onclick="checkout()" class="checkout-btn">
+      Commander
+    </button>
+  </div>
+</aside>
+
+<!-- Overlay -->
+<div id="overlay" onclick="closeAllSidebars()"></div>
+
+<main>
+
+  <!-- Accueil -->
+  <section id="homePage" class="page">
+    <h2>Bienvenue chez Virethos</h2>
+    <p>Découvrez nos meilleurs produits.</p>
+  </section>
+
+  <!-- Produits -->
+  <section id="productsPage" class="page" style="display:none;">
+    <div id="productsContainer" class="products-grid"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Virethos</p>
+</footer>
+
+<!-- =========================
+     CHECKOUT MODAL
+========================= -->
+
+<div id="checkoutModal" class="checkout-modal">
+
+  <div class="checkout-content">
+
+    <button class="close-checkout" onclick="closeCheckout()">
+      ✕
+    </button>
+
+    <h2>Finaliser la commande</h2>
+
+    <form id="checkoutForm">
+
+      <input
+        type="text"
+        id="customerName"
+        placeholder="Nom complet"
+        required
+      >
+
+      <input
+        type="tel"
+        id="customerPhone"
+        placeholder="Téléphone"
+        required
+      >
+
+      <input
+        type="text"
+        id="customerCity"
+        placeholder="Ville"
+        required
+      >
+
+      <textarea
+        id="customerAddress"
+        placeholder="Adresse complète"
+        required
+      ></textarea>
+
+      <div id="orderSummary"></div>
+
+      <button type="submit">
+        Confirmer la commande
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =========================
+     CONFIRMATION COMMANDE
+========================= -->
+
+<div id="orderSuccess" class="order-success">
+
+  <div class="success-content">
+
+    <h2>✅ Commande confirmée</h2>
+
+    <p>
+      Merci pour votre commande chez Virethos.
+    </p>
+
+    <button onclick="downloadOrder()">
+      Télécharger ma commande
+    </button>
+
+    <button onclick="closeSuccess()">
+      Retour au site
+    </button>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+  emailjs.init("JuTEKVA1eXAEsOmMP");
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="email.js"></script>
+<script type="module" src="./Virethos.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0d0f14;
+  color: white;
+}
+
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background: #11131a;
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 220px;
+  height: 100%;
+  background: #11131a;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar p {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+/* CONTAINER */
+.container {
+  padding: 20px;
+}
+
+/* INPUTS */
+input {
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  background: #1a1d25;
+  border: 1px solid #333;
+  color: white;
+}
+
+button {
+  padding: 10px;
+  background: #7a1f1f;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* PREVIEW IMAGES */
+#preview img {
+  width: 70px;
+  margin: 5px;
+  border-radius: 6px;
+}
+
+/* PRODUCT CARD */
+.product {
+  background: #1a1d25;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.product-card {
+  width: 280px;
+  background: #11131a;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 12px;
+  text-align: center;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.product-price {
+  color: #7a1f1f;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.stock {
+  color: green;
+}
+
+.product-actions button {
+  background: #7a1f1f;
+  border: none;
+  padding: 8px;
+  color: white;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* ================= MOBILE ================= */
+@media screen and (max-width: 768px) {
+
+  body {
+    font-size: 16px;
+  }
+
+  header {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  /* FORMULAIRE */
+  input {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* PREVIEW IMAGES */
+  #preview img {
+    width: 60px;
+  }
+
+  /* SIDEBAR plus adaptée mobile */
+  .sidebar {
+    width: 70%;
+    left: -100%;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  /* PRODUITS (important pour éviter overflow) */
+  .product-card {
+    width: 100% !important;
+    margin: 10px 0 !important;
+  }
+
+}

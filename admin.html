@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Virethos Admin</title>
+
+<link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+<header>
+  <div onclick="toggleSidebar()">☰</div>
+  <h1>Admin Virethos</h1>
+</header>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+  <p onclick="closeSidebar()" style="cursor:pointer;font-weight:bold;">
+    ✕ Fermer
+  </p>
+
+  <p onclick="showAdd()">➕ Ajouter produit</p>
+  <p onclick="showProducts()">📦 Produits</p>
+</div>
+
+<main class="container">
+
+<!-- ADD PRODUCT PAGE -->
+<div id="addPage">
+
+<h2>Ajouter produit</h2>
+
+<form id="productForm">
+
+  <input id="name" placeholder="Nom produit" required>
+  <input id="price" type="number" placeholder="Prix" required>
+  <input id="quantity" type="number" min="0" placeholder="Quantite disponible" required>
+
+  <input type="file" id="images" multiple accept="image/*">
+
+  <label>
+    <input type="checkbox" id="stock" checked>
+    En stock
+  </label>
+
+  <button type="submit">Ajouter</button>
+</form>
+
+<div id="preview"></div>
+
+</div>
+
+<!-- PRODUCTS PAGE -->
+<div id="productsPage" style="display:none;">
+
+<h2>Produits</h2>
+
+<div id="list"></div>
+
+</div>
+
+</main>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
