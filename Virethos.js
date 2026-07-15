@@ -789,5 +789,8 @@ window.openProduct = openProduct;
 window.addToCart = addToCart;
 window.renderCart = renderCart;
 window.goToImg = window.goToImg;
+window.increaseQuantity = increaseQuantity;
+window.decreaseQuantity = decreaseQuantity;
+window.removeFromCart = removeFromCart;
 
 console.log("Fonctions Virethos exposées");
