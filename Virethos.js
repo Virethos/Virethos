@@ -1,6 +1,4 @@
-﻿console.log("Virethos.js chargé");
-
-import { db } from "./firebase.js";
+﻿import { db } from "./firebase.js";
 
 import {
   collection,
@@ -792,5 +790,3 @@ window.goToImg = window.goToImg;
 window.increaseQuantity = increaseQuantity;
 window.decreaseQuantity = decreaseQuantity;
 window.removeFromCart = removeFromCart;
-
-console.log("Fonctions Virethos exposées");
