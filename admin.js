@@ -11,11 +11,25 @@ import {
 
 import {
   onAuthStateChanged,
+  signInWithEmailAndPassword,
   signOut
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
 let products = [];
 let orders = [];
+
+const ADMIN_EMAIL = "lahmidireda14@gmail.com";
+
+const loginScreen = document.getElementById("loginScreen");
+const adminPanel = document.getElementById("adminPanel");
+
+const loginBtn = document.getElementById("loginBtn");
+const logoutBtn = document.getElementById("logoutBtn");
+
+const emailInput = document.getElementById("loginEmail");
+const passwordInput = document.getElementById("loginPassword");
+
+const loginError = document.getElementById("loginError");
 
 /* ================= DOM ================= */
 const form = document.getElementById("productForm");
