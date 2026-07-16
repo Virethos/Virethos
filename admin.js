@@ -465,7 +465,57 @@ window.moveUp = moveUp;
 window.moveDown = moveDown;
 window.removeImage = removeImage;
 window.loadProducts = loadProducts;
-window.addEventListener("DOMContentLoaded", async () => {
-  await loadOrders();
-  await loadProducts();
+loginBtn.addEventListener("click", async () => {
+
+  loginError.textContent = "";
+
+  try {
+
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      emailInput.value,
+      passwordInput.value
+    );
+
+    if (userCredential.user.email !== ADMIN_EMAIL) {
+
+      await signOut(auth);
+
+      loginError.textContent = "Accès refusé.";
+
+      return;
+
+    }
+
+  } catch (error) {
+
+    loginError.textContent = "E-mail ou mot de passe incorrect.";
+
+  }
+
+});
+
+onAuthStateChanged(auth, async (user) => {
+
+  if (user && user.email === ADMIN_EMAIL) {
+
+    loginScreen.style.display = "none";
+    adminPanel.style.display = "block";
+
+    await loadOrders();
+    await loadProducts();
+
+  } else {
+
+    adminPanel.style.display = "none";
+    loginScreen.style.display = "flex";
+
+  }
+
+});
+
+logoutBtn.addEventListener("click", async () => {
+
+  await signOut(auth);
+
 });
