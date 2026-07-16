@@ -2,6 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Virethos Admin</title>
 
 <link rel="stylesheet" href="admin.css">
@@ -9,49 +11,109 @@
 
 <body>
 
+<!-- ================= LOGIN ================= -->
+
+<div id="loginScreen">
+
+  <div class="login-card">
+
+    <h1>Admin Virethos</h1>
+
+    <input
+      type="email"
+      id="loginEmail"
+      placeholder="E-mail"
+    >
+
+    <input
+      type="password"
+      id="loginPassword"
+      placeholder="Mot de passe"
+    >
+
+    <button id="loginBtn">
+      Se connecter
+    </button>
+
+    <p id="loginError"></p>
+
+  </div>
+
+</div>
+
+<!-- ================= ADMIN ================= -->
+
+<div id="adminPanel" style="display:none;">
+
 <header>
   <div onclick="toggleSidebar()">☰</div>
   <h1>Admin Virethos</h1>
+
+  <button id="logoutBtn">
+    Déconnexion
+  </button>
+
 </header>
 
 <!-- SIDEBAR -->
 <div id="sidebar" class="sidebar">
-  <p onclick="closeSidebar()" style="cursor:pointer;font-weight:bold;">
+
+  <p onclick="closeSidebar()">
     ✕ Fermer
   </p>
 
-  <p onclick="showAdd()">➕ Ajouter produit</p>
-  <p onclick="showProducts()">📦 Produits</p>
+  <p onclick="showAdd()">
+    ➕ Ajouter produit
+  </p>
+
+  <p onclick="showProducts()">
+    📦 Produits
+  </p>
+
 </div>
 
 <main class="container">
 
-<!-- ADD PRODUCT PAGE -->
 <div id="addPage">
 
 <h2>Ajouter produit</h2>
 
 <form id="productForm">
 
-  <input id="name" placeholder="Nom produit" required>
-  <input id="price" type="number" placeholder="Prix" required>
-  <input id="quantity" type="number" min="0" placeholder="Quantite disponible" required>
+<input
+id="name"
+placeholder="Nom produit"
+required>
 
-  <input type="file" id="images" multiple accept="image/*">
+<input
+id="price"
+type="number"
+placeholder="Prix"
+required>
 
-  <label>
-    <input type="checkbox" id="stock" checked>
-    En stock
-  </label>
+<input
+id="quantity"
+type="number"
+min="0"
+placeholder="Quantité disponible"
+required>
 
-  <button type="submit">Ajouter</button>
+<input
+type="file"
+id="images"
+multiple
+accept="image/*">
+
+<button type="submit">
+Ajouter
+</button>
+
 </form>
 
 <div id="preview"></div>
 
 </div>
 
-<!-- PRODUCTS PAGE -->
 <div id="productsPage" style="display:none;">
 
 <h2>Produits</h2>
@@ -61,6 +123,8 @@
 </div>
 
 </main>
+
+</div>
 
 <script type="module" src="admin.js"></script>
 
