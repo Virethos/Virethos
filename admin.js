@@ -467,6 +467,8 @@ window.removeImage = removeImage;
 window.loadProducts = loadProducts;
 loginBtn.addEventListener("click", async () => {
 
+  console.log("Bouton cliqué");
+  
   loginError.textContent = "";
 
   try {
@@ -519,3 +521,4 @@ logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
 
 });
+console.log("admin.js chargé");
